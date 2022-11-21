@@ -41,6 +41,8 @@ class Address {
 
 
 ### 역직렬화
-파일이 주어진다. json 입력을 String으로 변환한다.
+String json을 class로 역직렬화 한다.
+- 역직렬화 함수 인자는 objectMapper.read(String json, Class<?> clazz).
+- 해당 class 타입의 인스턴스를 생성해서 반환한다.
 
 
