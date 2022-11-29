@@ -8,6 +8,7 @@ public class ObjectMapper {
 
     public static String writeToString(Object object) throws IllegalAccessException {
         // TODO 코드를 개선해야함.
+        // TODO else 개선, 함수 분리
         Class<?> clazz = object.getClass();
         Field[] fields = clazz.getDeclaredFields();
         StringBuilder stringBuilder = new StringBuilder();
@@ -26,11 +27,9 @@ public class ObjectMapper {
             Class<?> fieldType = field.getType();
             if (fieldType.isPrimitive()) {
                 stringBuilder.append(convertStringFormat(field.get(object)));
-            }
-            else if (fieldType.equals(String.class)) {
+            } else if (fieldType.equals(String.class)) {
                 stringBuilder.append(convertStringFormat(field.get(object)));
-            }
-            else if (fieldType.isArray()) {
+            } else if (fieldType.isArray()) {
                 Object o = field.get(object);
                 int length = Array.getLength(o);
                 stringBuilder.append("[");
